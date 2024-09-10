@@ -93,7 +93,7 @@ export default function Layout({children}: {children: ReactNode}) {
               md:w-[194px] md:h-[175px] w-[124px] h-[111px] hidden sm:block'>
                 <div className='absolute inset-[3px] hidden sm:block bg-[#000000]'>
                 <Image
-                    src='Fang-yuan.svg'
+                    src='fang-yuan.jpg'
                     layout="fill"  
                     objectFit="cover" 
                     alt='art'
