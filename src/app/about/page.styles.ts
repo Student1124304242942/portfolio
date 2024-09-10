@@ -7,10 +7,10 @@ const inter1 = Iceland({subsets: ['latin'], weight: '400'});
 
 const styles = {
     smallText: [
-        'text-[14px]', 'tracking-[7.5%]', 'uppercase', 'text-[var(--first-text)]', inter1.className,
+        'md:text-[14px]', 'text-[12px]' , 'tracking-[7.5%]', 'uppercase', 'text-[var(--first-text)]', inter1.className,
     ],
     bigText: [
-        'text-[18px]', 'tracking-[7.5%]', 'uppercase', 'text-[var(--primary)]', inter0.className
+        'md:text-[18px]', 'text-[16px]' ,'tracking-[7.5%]', 'uppercase', 'text-[var(--primary)]', inter0.className
     ]
 }
 

@@ -1,84 +1,49 @@
 import React from 'react';
-import Image from 'next/image';
-import styles from './Sidebar.styles';
 import cl from 'classnames';
-import Button from '@/components/Button/Button';
-import ConnectionIcon from '@/icons/blututh.svg';
-import P from '@/components/P/P';
+import { Big_Shoulders_Display } from 'next/font/google';
 import { Iceland } from 'next/font/google';
+import UnionIcon from '@/icons/union.svg';
+import styles from './Sidebar.module.css'
+const inter2 = Iceland({subsets: ['latin'], weight: '400'});
+const inter1 = Big_Shoulders_Display({subsets: ['latin'], weight: '800'});
+import P from '@/components/P/P';
 
-const inter = Iceland({subsets: ['latin'], weight: '400'});
-
-const Sidebar = () => {
+const Sidebar = ({className}: {className?: string}) => {
   return (
-    <div className='relative'>
-      <div>
-        <div className='relative overflow-hidden bg-[#000000]  after:absolute after:top-[-50%] after:left-[-50%] after:bg-red-500 after:animate-spin
-        after:origin-bottom-right after:delay-[-1.5s]  after:w-[194px] after:h-[175px] after:z-[-1] 
-        before:content-[""]  before:absolute before:top-[-50%] before:left-[-50%] before:bg-red-500 before:animate-spin 
-        before:origin-bottom-right before:delay-[-3s]  before:w-[194px] before:h-[175px]
-        w-[194px] h-[175px]'>
-          <div className='absolute inset-[3px]  bg-[#000000]'>
-          <Image
-              src='Fang-yuan.svg'
-              layout="fill"  
-              objectFit="cover" 
-              alt='art'
-            />
+    <div className={cl('transition-[0.5s]  border-solid border-l-2 border-[var(--primary)]  flex flex-col gap-[23px]', styles.nth, {className})}>
+        <div>
+            <div className={cl(inter1.className, ' overflow-hidden flex max-h-[23px] justify-between px-[5px] py-[0] items-center bg-[var(--primary)] text-[var(--first-text)] uppercase text-[18px] tracking-[7.5%]')}>
+                <div>
+                   active guest
+                </div>
+                <div>
+                    <UnionIcon className = 'w-[2em] h-[2em]'/>
+                </div>
+            </div>
+            <div className={cl('bg-[#e84a4a1a]  text-[var(--second-text)] text-center text-[14px]  tracking-[7.5%]', inter2.className)}>
+              the react skill-up line
+            </div>
+        </div>
+        <div>
+          <div className={cl('text-[14px] mb-0 ml-[8px]  tracking-[7.5%] uppercase text-[var(--first-text)]', inter2.className)}>
+            quest name 
+          </div>
+          <div className={cl('text-[18px] mt-0 tracking-[7.5%]  uppercase text-[var(--primary)]', inter1.className)}>
+            Social media
           </div>
         </div>
         <div>
-          <div className='flex flex-col gap-0'>
-            <div className={cl(styles.smallText)}>
-              name
-            </div>
-            <div className={cl(styles.bigText)}>
-              Pulatov Yunus
-            </div>
-          </div>
-          <div className='flex flex-col gap-0'>
-            <div className={cl(styles.smallText)}>
-              occupation
-            </div>
-            <div className={cl(styles.bigText)}>
-              Fronted developer
-            </div>
-          </div>
-          <div className='flex flex-col gap-0'>
-            <div className={cl(styles.smallText)}>
-              corporation
-            </div>
-            <div className={cl(styles.bigText)}>
-              none
-            </div>
-          </div>
           <div>
-            <div className={cl(styles.smallText)}>
-              social
-            </div>
-            <Button size='flat' appearance='b'>
-              <div>
-                Open Connection
-              </div>
-              <div>
-                <ConnectionIcon/>
-              </div>
-            </Button>
+            goal
+          </div>
+          <div className=''>
+            <P size='ss' appearance='sw'>
+              Build this website. Implement a full react website with multiple routers, UI elements and tricky styling. Make it all work great!
+            </P>
           </div>
         </div>
-      </div>
-      <div>
-        <div className={cl(inter.className, 'uppercase text-[18px] tracking-[7.5%]  text-[var(--primary)] ')}>
-          Motto
-        </div>
-        <P size='s' appearance='sw'>
-          whether you succeed or fail when you look back there’s nothing left
-        </P>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
-
-/*   */
+export default Sidebar

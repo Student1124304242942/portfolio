@@ -1,4 +1,10 @@
 const styles = {
+    tiny: [
+        'text-[7px]', 'tracking-[7.5%]', 'uppercase'
+    ].join(" "),
+    smallest: [
+        'text-[14px]', 'tracking-[0]', 'uppercase',
+    ].join(" "),
     big: [
         "sm:text-[26px]",'text-[20px]',  'tracking-[7.5%]', 'uppercase',
     ].join(" "),
@@ -14,6 +20,9 @@ const styles = {
     swarthy: [
         'text-[var(--second-text)]'
     ].join(' '),
+    white: [
+        'text-[var(--tiny-text)]'
+    ].join(" ")
 }
 
 export default styles;

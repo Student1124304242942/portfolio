@@ -1,16 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Image from 'next/image';
+import cl from 'classnames'; 
 
-const Content = () => {
+const Content = ({children}: {children: ReactNode}) => {
   return (
-    <div className='text-white relative'>
-        <Image
-        alt='background'
-        src='background.svg'
-        layout='fill'
-        objectFit='cover'
-        quality={100}
-        />
+    <div className='text-white relative h-[100%] w-[100%] bg-cover bg-center' style={{backgroundImage: 'url(/background.svg)'}}>
+        {children}
     </div>
   )
 }

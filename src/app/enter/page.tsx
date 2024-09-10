@@ -31,7 +31,7 @@ export default function Page(){
             <br/>
             we would reproduce that idea into reality 
           </P>
-          <Button size="normal" appearance="b" onClick={() => { console.log("Button clicked!"); router.push('/about'); }} > Enter my portfolio</Button>
+          <Button size="normal" appearance="b" onClick={() => { console.log("Button clicked!"); router.push('/about/content'); }} > Enter my portfolio</Button>
         </div>
     </div>
   )

@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: #000000;
+}
+
 :root {
-  --bg-color: linear-gradient(229deg, #2c0f14 0, #000003 20%);
+  --bg-color: linear-gradient(229deg, #2c0f14 0, #000003 10%);
   --primary: #E84A4A;
   --first-text: #ffffff;
   --second-text: #7A7A7A;
+  --tiny-text: #ffffff80;
   --font-1: 'Iceland';
-  --font-2: 'Big Shoulders Display'
+  --font-2: 'Big Shoulders Display';
 }
+
