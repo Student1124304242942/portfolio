@@ -1,6 +1,4 @@
 import React, { ReactNode } from 'react';
-import Image from 'next/image';
-import cl from 'classnames'; 
 
 const Content = ({children}: {children: ReactNode}) => {
   return (
