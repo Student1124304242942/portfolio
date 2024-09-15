@@ -84,8 +84,8 @@ export default function Layout({children}: {children: ReactNode}) {
             </div>
           </div>
           <div className={cl('relative flex flex-col  justify-between w-[100%]', styles.rightSide)}>
-            <div className='md:flex-col flex justify-between w-[100%]'>
-              <div className='relative overflow-hidden bg-[#000000]  
+          <div className='md:flex-col flex gap-[10px] w-[100%]'>
+            <div className='relative overflow-hidden bg-[#ffffff]  
               md:w-[194px] md:h-[175px] w-[124px] h-[111px]'>
                 <div className='absolute inset-[3px] hidden sm:block bg-[#000000]'>
                 <Image
@@ -96,7 +96,7 @@ export default function Layout({children}: {children: ReactNode}) {
                   />
                 </div>
               </div>
-              <div className='flex md:flex-col gap-[10px] sm:justify-start sm:items-start items-center justify-center'>
+            <div className='flex md:flex-col gap-[10px] sm:justify-start sm:items-start items-center justify-center'>
                 <div className='flex-col hidden md:flex gap-[0]'>
                   <div className={cl(styles1.smallText)}>
                     name
@@ -178,7 +178,7 @@ export default function Layout({children}: {children: ReactNode}) {
                   </div>
                 <div/>
               </div>
-              </div>
+            </div>
           </div>
           <div className='hidden md:block'>
               <div className={cl(inter.className, 'uppercase text-[18px] tracking-[7.5%]  text-[var(--primary)] ')}>
@@ -191,7 +191,7 @@ export default function Layout({children}: {children: ReactNode}) {
               </div>
           </div>
          </div>
-         <header className={cl(styles.header)}>
+         <header className={cl(styles.header, 'sm:block hidden')}>
             <Header/>
           </header>
     </div>
