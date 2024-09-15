@@ -64,6 +64,7 @@
     .d3 {
         grid-template-columns: minmax(320px, 1fr);
         grid-template-areas:
+        "header"
         "body"
         "rightSide"
         "footer"

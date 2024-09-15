@@ -38,9 +38,9 @@ export default function Layout({children}: {children: ReactNode}) {
     document.querySelector(`.${styles.d3}`)?.classList.toggle(`${styles.rotated}`);
   }
   return (
-    <div className="overflow-hidden w-full h-full">
-        <div className={cl({
-            ['left-[-100%]']: shadow,
+  <div className="overflow-hidden w-full h-full">
+    <div className={cl({
+          ['left-[-100%]']: shadow,
             ['left-[0]']: !shadow
         }, 'transition-[10s]  z-[10] flex items-center justify-center gap-0 absolute min-h-[100%] md:w-[50%] w-full  bg-black bg-opacity-50 overflow-hidden')} onClick={handleClick1}>
           <div className='flex flex-col md:gap-[26px] gap-[10px]'>
@@ -58,10 +58,10 @@ export default function Layout({children}: {children: ReactNode}) {
             </nav>
             <div className= 'text-white absolute top-[50px] right-[50px] hover:bg-[var(--second-text)] rounded-[50%] transition-[0.5s]'onClick={handleClick1}><CloseIcon className='w-[2em] h-[2em]'/></div>
           </div>
-        </div>  
-        <div className={cl(styles.d3, {
-          [styles.rotated]: !shadow,
-          [styles.notRotated]: shadow
+    </div>  
+    <div className={cl(styles.d3, {
+        [styles.rotated]: !shadow,
+        [styles.notRotated]: shadow
         },'p-[40px] ')} style={{ background: "var(--bg-color)" }}>
           <div className={cl(styles.leftSide)}>
             <Sidebar/>
@@ -84,13 +84,9 @@ export default function Layout({children}: {children: ReactNode}) {
             </div>
           </div>
           <div className={cl('relative flex flex-col  justify-between w-[100%]', styles.rightSide)}>
-            <div className='md:flex-col flex justify-between  w-[100%] '>
+            <div className='md:flex-col flex justify-between w-[100%]'>
               <div className='relative overflow-hidden bg-[#000000]  
-              after:absolute after:top-[-50%] after:left-[-50%] after:bg-red-500 after:animate-spin
-              after:origin-bottom-right after:delay-[-1.5s]  md:after:w-[194px] md:after:h-[175px] after:w-[124px] after:h-[111px] after:z-[-1] 
-              before:content-[""]  before:absolute before:top-[-50%] before:left-[-50%] before:bg-red-500 before:animate-spin 
-              before:origin-bottom-right before:delay-[-3s]  md:before:w-[194px] md:before:h-[175px] before:w-[124px] before:h-[111px]
-              md:w-[194px] md:h-[175px] w-[124px] h-[111px] hidden sm:block'>
+              md:w-[194px] md:h-[175px] w-[124px] h-[111px]'>
                 <div className='absolute inset-[3px] hidden sm:block bg-[#000000]'>
                 <Image
                     src='fang-yuan.jpg'
@@ -138,50 +134,53 @@ export default function Layout({children}: {children: ReactNode}) {
                           </div>
                       </Button>
                   </div>
-                <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
-                  <div className='flex flex-col gap-0'>
-                    <div className={cl(styles1.smallText)}>
-                      name
+                <div className='md:hidden flex gap-[10px]'>  
+                  <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
+                    <div className='flex flex-col gap-0'>
+                      <div className={cl(styles1.smallText)}>
+                        name
+                      </div>
+                      <div className={cl(styles1.bigText)}>
+                        Pulatov Yunus
+                      </div>
                     </div>
-                    <div className={cl(styles1.bigText)}>
-                      Pulatov Yunus
-                    </div>
-                  </div>
-                  <div className='flex flex-col gap-0'>
-                    <div className={cl(styles1.smallText)}>
-                      occupation
-                    </div>
-                    <div className={cl(styles1.bigText)}>
-                      Fronted developer
-                    </div>
-                  </div>
-                </div>
-                <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
-                  <div className='flex flex-col gap-0'>
-                    <div className={cl(styles1.smallText)}>
-                      corporation
-                    </div>
-                    <div className={cl(styles1.bigText)}>
-                      none
+                    <div className='flex flex-col gap-0'>
+                      <div className={cl(styles1.smallText)}>
+                        occupation
+                      </div>
+                      <div className={cl(styles1.bigText)}>
+                        Fronted developer
+                      </div>
                     </div>
                   </div>
-                  <div className='flex flex-col gap-0'>
-                    <div className={cl(styles1.smallText)}>
-                      social
+                  <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
+                    <div className='flex flex-col gap-0'>
+                      <div className={cl(styles1.smallText)}>
+                        corporation
+                      </div>
+                      <div className={cl(styles1.bigText)}>
+                        none
+                      </div>
                     </div>
-                    <Button onClick={handleClick1}  size='flat' appearance='b'>
-                          <div>
-                              Open Connection
-                          </div>
-                          <div>
-                              <ConnectionIcon />
-                          </div>
-                      </Button>
+                    <div className='flex flex-col gap-0'>
+                      <div className={cl(styles1.smallText)}>
+                        social
+                      </div>
+                      <Button onClick={handleClick1}  size='flat' appearance='b'>
+                            <div>
+                                Open Connection
+                            </div>
+                            <div>
+                                <ConnectionIcon />
+                            </div>
+                        </Button>
+                    </div>
                   </div>
-                </div>
+                <div/>
               </div>
-            </div>
-            <div className='hidden md:block'>
+              </div>
+          </div>
+          <div className='hidden md:block'>
               <div className={cl(inter.className, 'uppercase text-[18px] tracking-[7.5%]  text-[var(--primary)] ')}>
                 Motto
               </div>
@@ -190,12 +189,12 @@ export default function Layout({children}: {children: ReactNode}) {
                   whether you succeed or fail when you look back there’s nothing left
                 </P>
               </div>
-            </div>
           </div>
-          <header className={cl(styles.header, 'hidden sm:block')}>
+         </div>
+         <header className={cl(styles.header)}>
             <Header/>
           </header>
-      </div>
-  </div>
+    </div>
+ </div>
   )
 }

@@ -18,8 +18,8 @@ export default function Carousel({ children: slides }: { children: ReactNode[] }
                 {slides}
             </div>
             <div className="absolute inset-0 flex items-center justify-between p-4">
-                <div onClick={prev} className="hover:"><Left className = 'w-[2em] h-[2em]'/></div>
-                <div onClick={next}><Right className = 'w-[2em] h-[2em]'/></div>
+                <div onClick={prev} className="cursor-pointer"><Left className = 'w-[2em] h-[2em]'/></div>
+                <div onClick={next}  className="cursor-pointer"><Right className = 'w-[2em] h-[2em]'/></div>
             </div>
         </div>
     );
