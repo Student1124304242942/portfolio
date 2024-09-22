@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import cl from 'classnames';
 import P from '@/components/P/P';
@@ -17,26 +17,30 @@ import { Big_Shoulders_Display } from 'next/font/google';
 import CloseIcon from '@/icons/close.svg';
 import VkIcon from '@/icons/vk.svg';
 import TgIcon from '@/icons/tg.svg';
+import { usePathname } from 'next/navigation';
 const inter = Iceland({subsets: ['latin'], weight: '400'});
 const inter1 = Big_Shoulders_Display({subsets: ['latin'], weight: '800'})
 
 
 export default function Layout({children}: {children: ReactNode}) {
   const router = useRouter();
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const onClick1  = () => {
-    router.push('/about/project');
-    setIsActive(!isActive);
-  }
-  const onClick2  = () => {
-    router.push('/about/content');
-    setIsActive(!isActive);
-  }
+  const path = usePathname();
+  const [activeButton, setActiveButton] = useState<number | null>(null);
   const [shadow, setShadow] = useState<boolean>(true);
+
   const handleClick1 = () => {
     setShadow(!shadow);
-    document.querySelector(`.${styles.d3}`)?.classList.toggle(`${styles.rotated}`);
-  }
+  };
+
+  
+  const handleButtonClick = (buttonNumber: number) => {
+    if (buttonNumber === 3) {
+      router.push( buttonNumber === 3 ? '/about/skills': '');
+    }  
+    setActiveButton(buttonNumber);
+    router.push(buttonNumber === 1 ? '/about/project' : '/about/content');
+  };
+
   return (
   <div className="overflow-hidden w-full h-full">
     <div className={cl({
@@ -66,10 +70,10 @@ export default function Layout({children}: {children: ReactNode}) {
           <div className={cl(styles.leftSide)}>
             <Sidebar/>
           </div>
-          <section className={cl(styles.body, 'overflow-hidden min-h-[70vh] sm:min-h-[80vh] md:min-h-[0] ')}>
+          <section className={cl(styles.body, 'overflow-hidden min-h-[70vh] sm:min-h-[100vh] md:min-h-[100%]')}>
             {children}
           </section>
-          <div className={cl(styles.footer, '')}>
+          <div className={cl(styles.footer)}>
             <nav className='items-center hidden  md:flex justify-center gap-[25px]'>
               <LinkElement direction = '/about/project' title = 'projects'> 
                   Suscipit est consequatur nemo voluptatem est labore saepe
@@ -77,15 +81,37 @@ export default function Layout({children}: {children: ReactNode}) {
               <LinkElement direction = '/about/content' title = 'beginning'> 
                   Suscipit est consequatur nemo voluptatem est labore saepe
               </LinkElement>
+              <LinkElement direction = '/about/skills' title = 'skills'> 
+                  Suscipit est consequatur nemo voluptatem est labore saepe
+              </LinkElement>
             </nav>
             <div className='flex md:hidden'>
-              <Button appearance={isActive ? 'r': 'b'} size='navigate' onClick={onClick1}>projects</Button>
-              <Button appearance={!isActive ? 'r': 'b'} size='navigate' onClick={onClick2}>about</Button>
+              <Button
+                appearance={activeButton === 1 ? 'r' : 'b'}
+                size='navigate'
+                onClick={() => handleButtonClick(1)}
+              >
+                projects
+              </Button>
+              <Button
+                appearance={activeButton === 2 ? 'r' : 'b'}
+                size='navigate'
+                onClick={() => handleButtonClick(2)}
+              >about</Button>
+            </div>
+            <div className='flex md:hidden'>
+              <Button
+              appearance='r'
+              size='navigate'
+              onClick={() => handleButtonClick(3)}
+            >
+              skills
+            </Button>
             </div>
           </div>
-          <div className={cl('relative flex flex-col  justify-between w-[100%]', styles.rightSide)}>
+          <div className={cl('relative flex flex-col  justify-between sm:w-[100%]', styles.rightSide)}>
           <div className='md:flex-col flex gap-[10px] w-[100%]'>
-            <div className='relative overflow-hidden bg-[#ffffff]  
+            <div className='relative sm:block hidden overflow-hidden bg-[#ffffff]  
               md:w-[194px] md:h-[175px] w-[124px] h-[111px]'>
                 <div className='absolute inset-[3px] hidden sm:block bg-[#000000]'>
                 <Image
@@ -191,7 +217,7 @@ export default function Layout({children}: {children: ReactNode}) {
               </div>
           </div>
          </div>
-         <header className={cl(styles.header, 'sm:block hidden')}>
+          <header className={cl(styles.header)}>
             <Header/>
           </header>
     </div>
