@@ -10,7 +10,7 @@ const inset1 = Iceland({subsets: ['latin'], weight: '400'})
 
 const Header = ({className}: {className?: string}) => {
   return (
-    <div className={cl('flex justify-between items-center', {className})}>
+    <div className={cl('flex justify-between items-center sm:flex-row', {className})}>
         <div className="flex gap-[10px]">
             <div className="flex items-center  gap-[5px]">
                 <Status>

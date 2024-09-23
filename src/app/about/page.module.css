@@ -62,14 +62,13 @@
 
 @media(max-width: 640px){
     .d3 {
-        grid-template-columns: minmax(320px, 1fr);
+        grid-template-columns: 1fr;
         grid-template-areas:
-        "header"
         "body"
         "rightSide"
         "footer"
         ;
-        grid-template-rows: 1fr auto auto;
+        grid-template-rows: 1fr 1fr auto;
     }
     .body {
         margin-bottom: 0;

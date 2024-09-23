@@ -35,10 +35,11 @@ export default function Layout({children}: {children: ReactNode}) {
   
   const handleButtonClick = (buttonNumber: number) => {
     if (buttonNumber === 3) {
-      router.push( buttonNumber === 3 ? '/about/skills': '');
-    }  
+      router.push('/about/skills');
+    } else {
+      router.push(buttonNumber === 1 ? '/about/project' : '/about/content')
+    };
     setActiveButton(buttonNumber);
-    router.push(buttonNumber === 1 ? '/about/project' : '/about/content');
   };
 
   return (
@@ -121,8 +122,8 @@ export default function Layout({children}: {children: ReactNode}) {
                     alt='art'
                   />
                 </div>
-              </div>
-            <div className='flex md:flex-col gap-[10px] sm:justify-start sm:items-start items-center justify-center'>
+            </div>
+            <div className='flex md:flex-col gap-[10px] sm:justify-start sm:items-start min-w-full items-center justify-center'>
                 <div className='flex-col hidden md:flex gap-[0]'>
                   <div className={cl(styles1.smallText)}>
                     name
@@ -131,7 +132,7 @@ export default function Layout({children}: {children: ReactNode}) {
                     Pulatov Yunus
                     </div>
                 </div>
-                <div className='flex-col  hidden md:flex gap-0'>
+                <div className='flex-col hidden md:flex gap-0'>
                   <div className={cl(styles1.smallText)}>
                     occupation
                   </div>
@@ -139,15 +140,15 @@ export default function Layout({children}: {children: ReactNode}) {
                       Fronted developer
                   </div>
                 </div>
-                  <div className='hidden md:flex flex-col gap-0'>
+                <div className='hidden md:flex flex-col gap-0 min-w-full'>
                     <div className={cl(styles1.smallText)}>
                       corporation
                     </div>
                     <div className={cl(styles1.bigText)}>
                       none
                     </div>
-                  </div>
-                  <div className='hidden md:flex flex-col gap-0'>
+                </div>
+                <div className='hidden md:flex flex-col gap-0'>
                     <div className={cl(styles1.smallText)}>
                       social
                     </div>
@@ -159,50 +160,64 @@ export default function Layout({children}: {children: ReactNode}) {
                               <ConnectionIcon />
                           </div>
                       </Button>
-                  </div>
-                <div className='md:hidden flex gap-[10px]'>  
-                  <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
-                    <div className='flex flex-col gap-0'>
-                      <div className={cl(styles1.smallText)}>
-                        name
+                </div>
+                <div className='flex flex-col gap-[10px] w-full md:hidden'>
+                  <div className='md:hidden flex sm:flex-row flex-col gap-[10px]'>  
+                    <div className='md:hidden flex md:flex-col justify-between gap-[10px]'>
+                      <div className='flex flex-col gap-0'>
+                        <div className={cl(styles1.smallText)}>
+                          name
+                        </div>
+                        <div className={cl(styles1.bigText)}>
+                          Pulatov Yunus
+                        </div>
                       </div>
-                      <div className={cl(styles1.bigText)}>
-                        Pulatov Yunus
-                      </div>
-                    </div>
-                    <div className='flex flex-col gap-0'>
-                      <div className={cl(styles1.smallText)}>
-                        occupation
-                      </div>
-                      <div className={cl(styles1.bigText)}>
-                        Fronted developer
-                      </div>
-                    </div>
-                  </div>
-                  <div className='md:hidden flex flex-col justify-between gap-[10px] [&>*]:flex'>
-                    <div className='flex flex-col gap-0'>
-                      <div className={cl(styles1.smallText)}>
-                        corporation
-                      </div>
-                      <div className={cl(styles1.bigText)}>
-                        none
+                      <div className='flex flex-col gap-0'>
+                        <div className={cl(styles1.smallText)}>
+                          occupation
+                        </div>
+                        <div className={cl(styles1.bigText)}>
+                          Fronted developer
+                        </div>
                       </div>
                     </div>
-                    <div className='flex flex-col gap-0'>
-                      <div className={cl(styles1.smallText)}>
-                        social
+                    <div className='md:hidden flex md:flex-col justify-between gap-[10px]'>
+                      <div className='flex flex-col gap-0'>
+                        <div className={cl(styles1.smallText)}>
+                          corporation
+                        </div>
+                        <div className={cl(styles1.bigText)}>
+                          none
+                        </div>
                       </div>
-                      <Button onClick={handleClick1}  size='flat' appearance='b'>
-                            <div>
+                      <div className='hidden flex-col gap-0 sm:flex'>
+                        <span className={cl(styles1.smallText)}>
+                          social
+                        </span>
+                        <Button onClick={handleClick1}  size='flat' appearance='b'>
+                              <div>
                                 Open Connection
-                            </div>
-                            <div>
-                                <ConnectionIcon />
-                            </div>
-                        </Button>
+                              </div>
+                              <div>
+                                  <ConnectionIcon />
+                              </div>
+                          </Button>
+                      </div>
                     </div>
                   </div>
-                <div/>
+                  <div className='flex flex-col gap-0 sm:hidden w-full'>
+                        <span className={cl(styles1.smallText)}>
+                          social
+                        </span>
+                        <Button onClick={handleClick1}  size='flat' appearance='b'>
+                              <div>
+                                Open Connection
+                              </div>
+                              <div>
+                                  <ConnectionIcon />
+                              </div>
+                          </Button>
+                  </div>
               </div>
             </div>
           </div>
@@ -217,7 +232,7 @@ export default function Layout({children}: {children: ReactNode}) {
               </div>
           </div>
          </div>
-          <header className={cl(styles.header)}>
+          <header className={cl(styles.header, 'sm:block hidden')}>
             <Header/>
           </header>
     </div>

@@ -6,7 +6,7 @@ const inter = Big_Shoulders_Display({subsets: ['latin'], weight: '800'});
 
 const Status = ({children}: StatusProps):JSX.Element => {
   return (
-    <div className={cl(inter.className, 'text-[#7DFF68] text-[26px] tracking-[7.5%] uppercase')}>{children}</div>
+    <div className={cl(inter.className, 'text-[#7DFF68] md:text-[26px] sm:text-[18px] text-[16px] tracking-[7.5%] uppercase')}>{children}</div>
   )
 }
 

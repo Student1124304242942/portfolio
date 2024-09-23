@@ -25,7 +25,7 @@ const Content = ({ children }: { children: ReactNode }) => {
 
   return (
     <div
-      className='text-white relative h-[100%] w-[100%] bg-cover bg-center'
+      className='text-white relative h-[100%] w-[100%] sm:max-h-[766px] bg-cover bg-center md:max-h-[100%] max-h-[256px]'
       style={{ backgroundImage: backgroundImage }}
     >
       {children}

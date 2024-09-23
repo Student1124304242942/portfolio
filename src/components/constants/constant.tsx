@@ -61,7 +61,7 @@ export const projects:Project[] = [
     {
         imageUrl: '/text-js-2.svg',
         gitHubLink: 'https://github.com/Student1124304242942/text-js',
-        siteLink: ''
+        siteLink: 'https://student1124304242942.github.io/js-knowledge-test/'
     },
     {
         imageUrl: '/to-do-list.svg',
